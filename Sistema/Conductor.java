@@ -3,6 +3,7 @@ package Sistema;
 import Estructuras_de_Datos.Lista;
 import Excepciones.ConductorExcepciones;
 import Excepciones.ConductorExcepciones.ConductorNoEncontradoException;
+import Excepciones.ServicioExcepcion.ServicioNoEncontradoException;
 
 public class Conductor extends Padre {
     private String placa;
@@ -53,7 +54,7 @@ public class Conductor extends Padre {
         return false;
     }
 
-    public void hablitarServicio(String tipoServicio){
+    public void hablitarServicio(String tipoServicio) throws ServicioNoEncontradoException{
        if(!ofrecerServicio(tipoServicio)){
             TipoServicios nuevoServicio = ServicioFactory.createServicio(tipoServicio);
             tiposdeServicio.insertarInicio(nuevoServicio);

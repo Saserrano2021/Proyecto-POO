@@ -1,5 +1,8 @@
 package Sistema;
 
+import Excepciones.ServicioExcepcion;
+import Excepciones.ServicioExcepcion.ServicioNoEncontradoException;
+
 public interface TipoServicios {
     String getNombreServicio();
 
@@ -18,24 +21,32 @@ class ServicioBaul implements TipoServicios {
         return "Servicio Baul";
     }
 }
-
 class ServicioParrilla implements TipoServicios {
     @Override
     public String getNombreServicio() {
-        return "Servicio Mascostas";
+        return "Servicio Parrilla";
+    }
+}
+
+class ServicioMascotas implements TipoServicios {
+    @Override
+    public String getNombreServicio() {
+        return "Servicio Mascotas";
     }
 }
 
 class ServicioFactory{
-    public static TipoServicios createServicio(String tipo) {
+    public static TipoServicios createServicio(String tipo) throws ServicioNoEncontradoException {
         if(tipo.equalsIgnoreCase("estandar")) {
             return new ServicioEstandar();
         } else if(tipo.equalsIgnoreCase("baul")) {
             return new ServicioBaul();
         } else if(tipo.equalsIgnoreCase("mascotas")) {
+            return new ServicioMascotas();
+        } else if(tipo.equalsIgnoreCase("parrilla")) {
             return new ServicioParrilla();
         } else {
-            throw new IllegalArgumentException("Tipo de servicio no reconocido: " + tipo);
+            throw new ServicioExcepcion.ServicioNoEncontradoException("El tipo de servicio '" + tipo + "' no es un tipo de servicio valido.");
         }
     }
 }
