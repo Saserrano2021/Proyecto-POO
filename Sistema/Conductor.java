@@ -8,7 +8,7 @@ public class Conductor extends Padre {
     private String placa;
     private String id;
     private boolean disponible;
-    private Lista<String> tiposdeServicio;
+    private Lista<TipoServicios> tiposdeServicio;
 
     public Conductor(String nombre, String zona, int codigo, String placa, String id) throws ConductorNoEncontradoException {
         super(nombre, zona, codigo);
@@ -20,7 +20,7 @@ public class Conductor extends Padre {
         }
         this.placa = placa;
         this.id = id;
-        this.disponible = true; // Por defecto, el conductor está disponible
+        this.disponible = true; 
         this.tiposdeServicio = new Lista<>();
     }
 
@@ -41,14 +41,23 @@ public class Conductor extends Padre {
         this.disponible = disponible;
     }
 
-    public void habilitarServicio(String tipoServicio){
-        if(!tiposdeServicio.buscar(tipoServicio)){
-            tiposdeServicio.insertarFinal(tipoServicio);
+    public boolean ofrecerServicio(String tipoServicio){
+        for (int i = 0; i < tiposdeServicio.tamaño(); i++) {
+            TipoServicios servicioGuardado = tiposdeServicio.obtenerPorIndice(i);
+            if(servicioGuardado != null ){
+                if(servicioGuardado.getNombreServicio().toLowerCase().contains(tipoServicio.toLowerCase())){
+                    return true; 
+                }
+            }
         }
+        return false;
     }
 
-    public boolean ofreceServicio(String tipoServicio){
-        return tiposdeServicio.buscar(tipoServicio);
+    public void hablitarServicio(String tipoServicio){
+       if(!ofrecerServicio(tipoServicio)){
+            TipoServicios nuevoServicio = ServicioFactory.createServicio(tipoServicio);
+            tiposdeServicio.insertarInicio(nuevoServicio);
+        } 
     }
 
     @Override
