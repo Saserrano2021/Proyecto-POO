@@ -1,4 +1,5 @@
 package Sistema;
+ @SuppressWarnings("FieldMayBeFinal")
 
 public class Padre {
     private String nombre;
@@ -25,6 +26,5 @@ public class Padre {
 
     public void setZona(String zona) {
         this.zona = zona;
-    }
-    
+    }   
 }

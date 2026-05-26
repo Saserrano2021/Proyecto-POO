@@ -1,16 +1,13 @@
 package Estructuras_de_Datos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
-import Estructuras_de_Datos.Cola;
-
-
 // Arista o Arco
-@SuppressWarnings("unused")
 class Arista {
     Object peso = null;
     Arista siguiente = null;
@@ -108,7 +105,7 @@ class ListaAdyacencia {
     }
 }
 
-public class Grafo {
+public class Grafo implements Serializable {
     private Vertice primero = null;
     private Vertice ultimo = null;
 
@@ -280,7 +277,7 @@ public class Grafo {
             temporal = temporal.siguiente;
         }
 
-        // La distancia al vértice de origen es 0
+        // La distancia al vertice de origen es 0
         distancias.put(verticeOrigen, 0.0);
 
         // Inicializa la cola de prioridad por distancias
@@ -351,7 +348,7 @@ public class Grafo {
             temporal = temporal.siguiente;
         }
 
-        // La distancia al vértice de origen es 0
+        // La distancia al vertice de origen es 0
         distancias.put(verticeOrigen, 0.0);
 
         // Relaja las aristas n-1 veces
@@ -389,7 +386,7 @@ public class Grafo {
         ArrayList<Vertice> vertices = new ArrayList<>();
         Vertice actual = primero;
 
-        // Crear una lista de vértices
+        // Crear una lista de vertices
         while (actual != null) {
             vertices.add(actual);
             actual = actual.siguiente;
@@ -403,7 +400,7 @@ public class Grafo {
             ArrayList<Double> fila = new ArrayList<>();
             for (int j = 0; j < n; j++) {
                 if (i == j) {
-                    fila.add(0.0); // Distancia de un vértice a sí mismo es 0
+                    fila.add(0.0); // Distancia de un vertice a si mismo es 0
                 } else {
                     fila.add(Double.POSITIVE_INFINITY); // Inicialmente, las distancias son infinitas
                 }
@@ -473,5 +470,4 @@ public class Grafo {
             System.out.println();
         }
     }
-
 }

@@ -11,7 +11,7 @@ public interface TipoServicios {
 class ServicioEstandar implements TipoServicios {
     @Override
     public String getNombreServicio() {
-        return "Servicio Estándar";
+        return "Servicio Estandar";
     }
 }
 

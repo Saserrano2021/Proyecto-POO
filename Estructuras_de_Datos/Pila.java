@@ -1,8 +1,10 @@
 package Estructuras_de_Datos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Pila<T> {
+public class Pila<T> implements Serializable {
+    @SuppressWarnings("FieldMayBeFinal")
     private ArrayList<T> pila;
 
 
@@ -46,7 +48,7 @@ public class Pila<T> {
 
     public void print_stack() {
         if (empty()) {
-            System.out.println("La pila está vacía.");
+            System.out.println("La pila esta vacia.");
         } else {
             System.out.print("Elementos de la pila (top -> bottom): ");
             for (int i = pila.size() - 1; i >= 0; i--) {
@@ -56,4 +58,3 @@ public class Pila<T> {
         }
     }
 }
-

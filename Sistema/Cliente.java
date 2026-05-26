@@ -1,8 +1,11 @@
 package Sistema;
 
 import Estructuras_de_Datos.Pila;
+import java.io.Serializable;
 
-public class Cliente extends Padre{
+public class Cliente extends Padre implements Serializable{
+    @SuppressWarnings("FieldMayBeFinal")
+    
     private Pila<String> historial;
 
     public Cliente(String nombre, String zona, int codigo) {
@@ -16,7 +19,7 @@ public class Cliente extends Padre{
 
     public void mostrarHistorial (){
         if (historial.empty()){
-            System.err.println("El cliente" + getNombre() + " no ha realizado ninguna actividad.");
+            System.err.println("El cliente" + getNombre() + " no ha realizado ninguna accion.");
             return;
         }
         System.out.println("Historial de actividades del cliente " + getNombre() + ":");
@@ -26,9 +29,6 @@ public class Cliente extends Padre{
 
     @Override
     public String toString() {
-        return "Cliente [getNombre()=" + getNombre() + ", getZona()=" + getZona() + ", getCodigo()=" + getCodigo()
-                + "]";
+        return "Cliente [Nombre: " + getNombre() + ", Zona: " + getZona() + ", Codigo: " + getCodigo() + "]";
     }
-
-    
 }

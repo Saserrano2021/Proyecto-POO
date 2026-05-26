@@ -1,25 +1,31 @@
 package Sistema;
 
-import Estructuras_de_Datos.Pila;
 import Estructuras_de_Datos.ColaDinamica;
+import Estructuras_de_Datos.Pila;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 public class SolicitudServicio implements Serializable {
+    @SuppressWarnings("FieldMayBeFinal")
     private int codigo;
+    @SuppressWarnings("FieldMayBeFinal")
     private Cliente cliente;
     private Conductor conductor;
+    @SuppressWarnings("FieldMayBeFinal")
     private String origen;
+    @SuppressWarnings("FieldMayBeFinal")
     private String destino;
     private String tipoServicio;
-    private String estado; //Este atributo dice que si el serivicio esta en espera, se esta atentiendo, esta cancelado o demás estados
+    private String estado; //Este atributo dice que si el serivicio esta en espera, se esta atentiendo, esta cancelado o demas estados
     private double tarifa;
     private double tiempoEstimado;
     private Pila<String> historialEstados;
     private ColaDinamica<String> pasosParaEntrega;
     private String motivoDeCancelacion;
+    @SuppressWarnings("unused")
     private LocalDateTime fechaSolicitud;
 
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public SolicitudServicio(int codigo, Cliente cliente,String origen, String destino, String tipoServicio) {
         this.codigo = codigo;
         this.cliente = cliente;
@@ -32,6 +38,9 @@ public class SolicitudServicio implements Serializable {
         this.fechaSolicitud = LocalDateTime.now();
 
         registrarPaso("La solicitud fue creada por el cliente: " + cliente.getNombre() + " . En el barrio: " + origen + " . Y su destino es: " + destino);
+    }
+
+    public SolicitudServicio() {
     }
     
     public int getCodigo() {
@@ -101,8 +110,7 @@ public class SolicitudServicio implements Serializable {
 
 @Override
     public String toString() {
-        return "SolicitudServicio [codigo=" + codigo + ", cliente=" + cliente.getNombre() + ", conductor=" + (conductor != null ? conductor.getNombre() : "No asignado") + ", origen=" + origen + ", destino=" + destino + ", tipoServicio=" + tipoServicio + ", estado=" + estado + ", tarifa=" + tarifa + ", tiempoEstimado=" + tiempoEstimado + "]";
+        return "SolicitudServicio [codigo:" + codigo + ", cliente:" + cliente.getNombre() + ", conductor:" + (conductor != null ? conductor.getNombre() : "No asignado") + ", origen:" + origen + ", destino:" + destino + ", tipoServicio:" + tipoServicio + ", estado:" + estado + ", tarifa:" + tarifa + ", tiempoEstimado:" + tiempoEstimado + "]";
     }
 
 }
-

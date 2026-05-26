@@ -1,13 +1,15 @@
 package Estructuras_de_Datos;
 
+import java.io.Serializable;
+
 // Lista doblemente enlazada
-public class Lista<T> {
+public class Lista<T> implements Serializable {
     private Nodo<T> frente;
     private Nodo<T> fin;
-    private int tamaño;
+    private int tamano;
 
-    public int tamaño() {
-        return tamaño;
+    public int tamano() {
+        return tamano;
     }
 
     public boolean Isempty() {
@@ -15,7 +17,7 @@ public class Lista<T> {
     }
 
     public T obtenerPorIndice(int indice){
-        if(frente == null || indice < 0 || indice >= tamaño){
+        if(frente == null || indice < 0 || indice >= tamano){
             return null;
         }
         Nodo<T> temp = frente;
@@ -30,7 +32,7 @@ public class Lista<T> {
     // Recorrer de frente a fin
     public void recorrerFrenteAFin() {
         if (frente == null) {
-            System.out.println("La lista está vacía");
+            System.out.println("La lista esta vacia");
             return;
         }
         Nodo<T> temp = frente;
@@ -44,7 +46,7 @@ public class Lista<T> {
     // Recorrer de fin a frente
     public void recorrerFinAFrente() {
         if (fin == null) {
-            System.out.println("La lista está vacía");
+            System.out.println("La lista esta vacia");
             return;
         }
         Nodo<T> temp = fin;
@@ -65,7 +67,7 @@ public class Lista<T> {
             frente.anterior = nuevo;
             frente = nuevo;
         }
-        tamaño++;
+        tamano++;
     }
 
     // Insertar al final
@@ -78,13 +80,13 @@ public class Lista<T> {
             fin.siguiente = nuevo;
             fin = nuevo;
         }
-        tamaño++;
+        tamano++;
     }
 
-    // Insertar después de un nodo
+    // Insertar despues de un nodo
     public void insertarDespues(T referencia, T dato) {
         if (frente == null) {
-            System.out.println("La lista está vacía");
+            System.out.println("La lista esta vacia");
             return;
         }
         Nodo<T> temp = frente;
@@ -104,13 +106,13 @@ public class Lista<T> {
             fin = nuevo;
         }
         temp.siguiente = nuevo;
-        tamaño++;
+        tamano++;
     }
 
     // Insertar antes de un nodo
     public void insertarAntes(T referencia, T dato) {
         if (frente == null) {
-            System.out.println("La lista está vacía");
+            System.out.println("La lista esta vacia");
             return;
         }
         Nodo<T> temp = frente;
@@ -130,7 +132,7 @@ public class Lista<T> {
             frente = nuevo;
         }
         temp.anterior = nuevo;
-        tamaño++;
+        tamano++;
     }
 
     // Buscar un elemento
@@ -150,7 +152,7 @@ public class Lista<T> {
     // Borrar primero
     public void borrarPrimero() {
         if (frente == null) {
-            System.out.println("La lista está vacía");
+            System.out.println("La lista esta vacia");
             return;
         }
         if (frente == fin) {
@@ -159,13 +161,13 @@ public class Lista<T> {
             frente = frente.siguiente;
             frente.anterior = null;
         }
-        tamaño--;
+        tamano--;
     }
 
-    // Borrar último
+    // Borrar ultimo
     public void borrarUltimo() {
         if (fin == null) {
-            System.out.println("La lista está vacía");
+            System.out.println("La lista esta vacia");
             return;
         }
         if (frente == fin) {
@@ -174,13 +176,13 @@ public class Lista<T> {
             fin = fin.anterior;
             fin.siguiente = null;
         }
-        tamaño--;
+        tamano--;
     }
 
-    // Borrar después de un nodo
+    // Borrar despues de un nodo
     public void borrarDespues(T referencia) {
         if (frente == null) {
-            System.out.println("La lista está vacía");
+            System.out.println("La lista esta vacia");
             return;
         }
         Nodo<T> temp = frente;
@@ -188,7 +190,7 @@ public class Lista<T> {
             temp = temp.siguiente;
         }
         if (temp == null || temp.siguiente == null) {
-            System.out.println("No hay elemento después de " + referencia);
+            System.out.println("No hay elemento despues de " + referencia);
             return;
         }
         Nodo<T> borrar = temp.siguiente;
@@ -198,13 +200,13 @@ public class Lista<T> {
         } else {
             fin = temp;
         }
-        tamaño--;
+        tamano--;
     }
 
     // Borrar antes de un nodo
     public void borrarAntes(T referencia) {
         if (frente == null) {
-            System.out.println("La lista está vacía");
+            System.out.println("La lista esta vacia");
             return;
         }
         Nodo<T> temp = frente;
@@ -222,20 +224,20 @@ public class Lista<T> {
         } else {
             frente = temp;
         }
-        tamaño--;
+        tamano--;
     }
 
-    // Insertar en una posición específica
+    // Insertar en una posicion especifica
     public void insertarEnPosicion(T dato, int posicion) {
-        if (posicion < 0 || posicion > tamaño) {
-            System.out.println("Posición inválida");
+        if (posicion < 0 || posicion > tamano) {
+            System.out.println("Posicion invalida");
             return;
         }
         if (posicion == 0) {
             insertarInicio(dato);
             return;
         }
-        if (posicion == tamaño) {
+        if (posicion == tamano) {
             insertarFinal(dato);
             return;
         }
@@ -248,13 +250,13 @@ public class Lista<T> {
         nuevo.siguiente = temp;
         temp.anterior.siguiente = nuevo;
         temp.anterior = nuevo;
-        tamaño++;
+        tamano++;
     }
 
     // Borrar por valor (normal)
     public void borrar(T valor) {
         if (frente == null) {
-            System.out.println("La lista está vacía");
+            System.out.println("La lista esta vacia");
             return;
         }
         Nodo<T> temp = frente;
@@ -273,8 +275,6 @@ public class Lista<T> {
             temp.anterior.siguiente = temp.siguiente;
             temp.siguiente.anterior = temp.anterior;
         }
-        tamaño--;
+        tamano--;
     }
-
 }
-

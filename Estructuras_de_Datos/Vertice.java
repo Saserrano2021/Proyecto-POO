@@ -1,6 +1,8 @@
 package Estructuras_de_Datos;
 
-public class Vertice {
+import java.io.Serializable;
+
+public class Vertice implements Serializable {
     Object dato;
     Vertice siguiente = null;
     ListaAdyacencia listaAdyacencia = new ListaAdyacencia();
@@ -9,6 +11,7 @@ public class Vertice {
         this.dato = dato;
     }
 
+    @Override
     public String toString() {
         return dato.toString();
     }

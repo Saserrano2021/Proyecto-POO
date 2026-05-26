@@ -1,9 +1,10 @@
 package Estructuras_de_Datos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-public class ColaConPrioridad<T> {
+public class ColaConPrioridad<T> implements Serializable {
     private final ArrayList<T> items;
     private final Comparator<T> comparador;
 
@@ -14,7 +15,7 @@ public class ColaConPrioridad<T> {
     }
 
     public void encolar(T elemento) {
-        // Insertar el elemento en la posición correcta según la prioridad
+        // Insertar el elemento en la posicion correcta segun la prioridad
         int i = 0;
         while (i < items.size() && comparador.compare(elemento, items.get(i)) >= 0) {
             i++;

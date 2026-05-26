@@ -1,6 +1,8 @@
 package Estructuras_de_Datos;
 
-public class Cola<T> {
+import java.io.Serializable;
+
+public class Cola<T> implements Serializable{
     private Nodo<T> head = null;
     private Nodo<T> tail = null;
     private int size = 0;

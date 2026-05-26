@@ -1,18 +1,18 @@
 package Sistema;
 
 import Estructuras_de_Datos.Grafo;
-import Estructuras_de_Datos.Lista;
-import Estructuras_de_Datos.Nodo;
 import Estructuras_de_Datos.Vertice;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-import java.io.Serializable;
 
 public class Mapa implements Serializable {
+    @SuppressWarnings("FieldMayBeFinal")
+    
     private Grafo grafo;
 
     public static String[] Barrios = {
-            "Centro Histórico", "Bastidas", "Galicia", "El prado", "El jardin", "La ciudadela",
+            "Centro Historico", "Bastidas", "Galicia", "El prado", "El jardin", "La ciudadela",
             "Ciudad Equidad", "El mercado", "La paz", "Nuevo Milenio", "Nueva Galicia",
             "Pescaito", "Juan23","Cartagena","Taminaka", "Ojeda","Santa Ana","El pando",
             "11 de Noviembre", "El reposo"
@@ -33,25 +33,25 @@ public class Mapa implements Serializable {
         for (String barrio : Barrios){
             grafo.agregarVertice(barrio);
         }
-        Nododirigido("Centro Histórico", "Bastidas", 2);
-        Nododirigido("Centro Histórico", "Galicia", 3);
-        Nododirigido("Centro Histórico", "El prado", 3);
-        Nododirigido("Centro Histórico", "El jardin", 3);
-        Nododirigido("Centro Histórico", "La ciudadela", 3);
-        Nododirigido("Centro Histórico", "Ciudad Equidad", 3);
-        Nododirigido("Centro Histórico", "El mercado", 3);
-        Nododirigido("Centro Histórico", "La paz", 3);
-        Nododirigido("Centro Histórico", "Nuevo Milenio", 3);
-        Nododirigido("Centro Histórico", "Nueva Galicia", 3);
-        Nododirigido("Centro Histórico", "Pescaito", 3);
-        Nododirigido("Centro Histórico", "Juan23", 3);
-        Nododirigido("Centro Histórico", "Cartagena", 3);
-        Nododirigido("Centro Histórico", "Taminaka", 3);
-        Nododirigido("Centro Histórico", "Ojeda", 3);
-        Nododirigido("Centro Histórico", "Santa Ana", 3);
-        Nododirigido("Centro Histórico", "El pando", 3);
-        Nododirigido("Centro Histórico", "11 de Noviembre", 3);
-        Nododirigido("Centro Histórico", "El reposo", 3);
+        Nododirigido("Centro Historico", "Bastidas", 2);
+        Nododirigido("Centro Historico", "Galicia", 3);
+        Nododirigido("Centro Historico", "El prado", 3);
+        Nododirigido("Centro Historico", "El jardin", 3);
+        Nododirigido("Centro Historico", "La ciudadela", 3);
+        Nododirigido("Centro Historico", "Ciudad Equidad", 3);
+        Nododirigido("Centro Historico", "El mercado", 3);
+        Nododirigido("Centro Historico", "La paz", 3);
+        Nododirigido("Centro Historico", "Nuevo Milenio", 3);
+        Nododirigido("Centro Historico", "Nueva Galicia", 3);
+        Nododirigido("Centro Historico", "Pescaito", 3);
+        Nododirigido("Centro Historico", "Juan23", 3);
+        Nododirigido("Centro Historico", "Cartagena", 3);
+        Nododirigido("Centro Historico", "Taminaka", 3);
+        Nododirigido("Centro Historico", "Ojeda", 3);
+        Nododirigido("Centro Historico", "Santa Ana", 3);
+        Nododirigido("Centro Historico", "El pando", 3);
+        Nododirigido("Centro Historico", "11 de Noviembre", 3);
+        Nododirigido("Centro Historico", "El reposo", 3);
 
         Nododirigido("Bastidas", "Galicia", 2);
         Nododirigido("Bastidas", "El prado", 2.5);
@@ -107,5 +107,3 @@ public class Mapa implements Serializable {
         grafo.eliminarArista(b, a);
     }
 }
-
-

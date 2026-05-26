@@ -1,6 +1,8 @@
 package Estructuras_de_Datos;
 
-public class Nodo<T> {
+import java.io.Serializable;
+
+public class Nodo<T> implements Serializable {
     T dato;
     Nodo<T> siguiente;
     Nodo<T> anterior;
