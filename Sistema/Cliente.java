@@ -3,7 +3,7 @@ package Sistema;
 import Estructuras_de_Datos.Pila;
 import java.io.Serializable;
 
-public class Cliente extends Padre implements Serializable{
+public class Cliente extends Padre implements Serializable {
     @SuppressWarnings("FieldMayBeFinal")
     
     private Pila<String> historial;

@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Map;
 
 // Arista o Arco
-class Arista {
+class Arista implements Serializable {
     Object peso = null;
     Arista siguiente = null;
     Vertice destino = null;
@@ -24,7 +24,7 @@ class Arista {
 }
 
 // Lista de Adyacencia
-class ListaAdyacencia {
+class ListaAdyacencia implements Serializable {
     Arista primera = null;
     Arista ultima = null;
 

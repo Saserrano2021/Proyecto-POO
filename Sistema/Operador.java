@@ -1,6 +1,8 @@
 package Sistema;
 
-public class Operador extends Padre{
+import java.io.Serializable;
+
+public class Operador extends Padre implements Serializable {
     private String turno;
     public Operador(String nombre, String zona, int codigo, String turno) {
         super(nombre, zona, codigo);

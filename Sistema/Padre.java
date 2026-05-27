@@ -1,7 +1,8 @@
 package Sistema;
- @SuppressWarnings("FieldMayBeFinal")
 
-public class Padre {
+import java.io.Serializable;
+
+public class Padre implements Serializable {
     private String nombre;
     private String zona;
     private int codigo;

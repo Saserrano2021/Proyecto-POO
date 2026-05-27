@@ -1,4 +1,3 @@
-package Menu;
 
 import Controlador.Cooperativa;
 import Sistema.Cliente;

@@ -42,13 +42,13 @@ public class Cooperativa implements Serializable {
         return instancia;
     }
 
-    // --- Gestión de Entidades ---
+
     public void registrarConductor(Conductor c) { conductores.insertarFinal(c); }
     public void registrarCliente(Cliente c) { clientes.insertarFinal(c); }
     public void registrarOperador(Operador o) { operadores.insertarFinal(o); }
 
     public Cliente buscarClientePorCodigo(int codigo) {
-        for (int i = 0; i < clientes.tamaño(); i++) {
+        for (int i = 0; i < clientes.tamano(); i++) {
             Cliente c = clientes.obtenerPorIndice(i);
             if (c.getCodigo() == codigo) return c;
         }
@@ -56,14 +56,13 @@ public class Cooperativa implements Serializable {
     }
 
     public Operador buscarOperadorPorCodigo(int codigo) {
-        for (int i = 0; i < operadores.tamaño(); i++) {
+        for (int i = 0; i < operadores.tamano(); i++) {
             Operador o = operadores.obtenerPorIndice(i);
             if (o.getCodigo() == codigo) return o;
         }
         return null;
     }
 
-    // --- Lógica de Negocio ---
     public void crearSolicitud(Cliente cliente, String origen, String destino, String tipo) throws Exception {
         double dist = mapa.distancia(origen, destino);
         if (dist == Double.MAX_VALUE) throw new ZonaInexistenteExcepcion.ZonaNoEncontradaException("No hay ruta.");
@@ -80,7 +79,7 @@ public class Cooperativa implements Serializable {
         SolicitudServicio solicitud = solicitudesPendientes.dequeue();
         Conductor asignado = null;
 
-        for (int i = 0; i < conductores.tamaño(); i++) {
+        for (int i = 0; i < conductores.tamano(); i++) {
             Conductor c = conductores.obtenerPorIndice(i);
             if (c.isDisponible() && c.ofrecerServicio(solicitud.getTipoServicio())) {
                 asignado = c;

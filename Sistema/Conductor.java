@@ -6,7 +6,7 @@ import Excepciones.ConductorExcepciones.ConductorNoEncontradoException;
 import Excepciones.ServicioExcepcion.ServicioNoEncontradoException;
 import java.io.Serializable;
 
-public class Conductor extends Padre implements Serializable{
+public class Conductor extends Padre implements Serializable {
     private String placa;
     private String id;
     private boolean disponible;
