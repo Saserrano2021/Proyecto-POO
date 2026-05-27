@@ -13,8 +13,14 @@ Sin un sistema centralizado, la cooperativa enfrenta dificultades para controlar
 ## Requisitos Funcionales Implementados
 
 ### Gestión de Actores
+
 * **Conductores:** Se registran con nombre, zona, código, placa y cédula. Al momento del registro se valida que la placa y el identificador no estén vacíos. Cada conductor puede tener habilitados uno o más tipos de servicio (Estándar, Baúl, Mascotas y Parrilla) y mantiene un estado interno de disponibilidad que cambia cuando se le asigna un viaje.
+<img width="940" height="436" alt="image" src="https://github.com/user-attachments/assets/53325ccc-6362-4369-90a9-a17d05503cc6" />
+
 * **Clientes:** Se registran con nombre, zona y código único. Cada cliente lleva un historial de actividad implementado con una Pila, lo que permite consultar los viajes más recientes primero.
+<img width="478" height="264" alt="image" src="https://github.com/user-attachments/assets/6938b442-3fdc-46d6-af36-7ed0d9de4bb2" />
+
+
 * **Operadores:** Se registran con nombre, zona, código y turno, siendo los únicos actores autorizados para procesar la cola de solicitudes pendientes.
 
 ### El Mapa y Enrutamiento (Grafos)
@@ -25,12 +31,20 @@ El mapa del sistema es un grafo bidireccional con pesos que representa 20 barrio
 
 ### Flujo de Solicitudes y Asignación
 1. **Solicitud:** Cuando un cliente solicita un viaje, elige un barrio de origen, un barrio de destino y el tipo de taxi que necesita. El sistema verifica que exista una ruta válida entre los dos puntos en el grafo del mapa.
+<img width="1426" height="275" alt="image" src="https://github.com/user-attachments/assets/72e51176-6f7e-4428-a1ca-dcda22ca5f6e" />
+
 2. **Cálculo de Tarifa y Tiempo:** Si la ruta existe, se calcula la tarifa con la fórmula de cinco mil pesos de base más mil pesos por kilómetro de distancia, y se estima el tiempo de llegada multiplicando la distancia por dos.
 3. **Encolamiento:** La solicitud se encola en una Cola FIFO (First In, First Out) de solicitudes pendientes.
 4. **Despacho:** Cuando un operador elige atender la siguiente solicitud, el sistema desencola la primera de la fila y busca entre los conductores registrados uno que esté disponible y que ofrezca el tipo de servicio requerido. Si lo encuentra, le asigna la solicitud, lo marca como no disponible y actualiza el estado del viaje a "En camino". Si ningún conductor cumple las condiciones, la solicitud se re-encola al final y el sistema lanza una excepción informativa.
+<img width="1143" height="442" alt="image" src="https://github.com/user-attachments/assets/6a396b77-a9cb-4a5a-8c96-e7805c3c72b9" />
+
 
 ### Persistencia de Datos
 Al seleccionar la opción de salida, todos los datos del sistema se serializan en un archivo llamado `cooperativa_datos.dat`. La próxima vez que se ejecute el programa, ese archivo se carga automáticamente y el sistema retoma el estado exacto en que se dejó. Si el archivo no existe o está corrupto, el sistema arranca con una cooperativa vacía sin interrumpir la ejecución.
+<img width="943" height="380" alt="image" src="https://github.com/user-attachments/assets/8df4c193-1076-4240-977a-fc95d9149b77" />
+
+<img width="409" height="101" alt="image" src="https://github.com/user-attachments/assets/babcb8be-979e-42c3-9283-c6077413f2da" />
+
 
 ### Sistema de Excepciones Personalizadas
 El sistema cuenta con un conjunto de excepciones personalizadas para el control de errores:
@@ -39,10 +53,3 @@ El sistema cuenta con un conjunto de excepciones personalizadas para el control 
 * `ConductorNoEncontradoException`: Cuando los datos de registro de un conductor son inválidos.
 * `ServicioNoEncontradoException`: Cuando el tipo de servicio solicitado no existe en el catálogo.
 * `ViaNoEncontradaException`: Cuando se referencia una conexión inexistente en el mapa.
-
-
-
-<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/5760de32-dec8-43c7-9305-8e79d0f57ffa" />
-
-<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/fe11ae9d-8754-4aee-8ad4-7671066f00fc" />
-
