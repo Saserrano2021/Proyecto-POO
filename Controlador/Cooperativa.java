@@ -63,15 +63,17 @@ public class Cooperativa implements Serializable {
         return null;
     }
 
-    public void crearSolicitud(Cliente cliente, String origen, String destino, String tipo) throws Exception {
-        double dist = mapa.distancia(origen, destino);
-        if (dist == Double.MAX_VALUE) throw new ZonaInexistenteExcepcion.ZonaNoEncontradaException("No hay ruta.");
+    public SolicitudServicio crearSolicitud(Cliente cliente, String origen, String destino, String tipo) throws Exception {
+    double dist = mapa.distancia(origen, destino);
+    if (dist == Double.MAX_VALUE) throw new ZonaInexistenteExcepcion.ZonaNoEncontradaException("No hay ruta.");
 
-        SolicitudServicio nueva = new SolicitudServicio(contadorSolicitudes++, cliente, origen, destino, tipo);
-        nueva.setTarifa(5000 + (dist * 1000)); // Tarifa base + distancia
-        nueva.setTiempoEstimado(dist * 2); // Simulación de tiempo
-        solicitudesPendientes.enqueue(nueva);
-    }
+    SolicitudServicio nueva = new SolicitudServicio(contadorSolicitudes++, cliente, origen, destino, tipo);
+    nueva.setTarifa(5000 + (dist * 1000));
+    nueva.setTiempoEstimado(dist * 2);
+    solicitudesPendientes.enqueue(nueva);
+    return nueva;
+}
+
 
     public void atenderSolicitud(Operador operador) throws Exception {
         if (solicitudesPendientes.getSize() == 0) return;

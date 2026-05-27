@@ -4,6 +4,8 @@ import Sistema.Cliente;
 import Sistema.Conductor;
 import Sistema.Mapa;
 import Sistema.Operador;
+import Sistema.SolicitudServicio;
+
 import java.util.Scanner;
 
 public class Main {
@@ -125,14 +127,16 @@ public class Main {
     }
 
     private static void pedirViaje(Cliente c) throws Exception {
-        System.out.println("Barrios disponibles: " + String.join(", ", Mapa.Barrios));
-        System.out.print("Origen: "); String ori = sc.nextLine();
-        System.out.print("Destino: "); String des = sc.nextLine();
-        System.out.print("Tipo de Taxi (Estandar/Baul/Mascotas/Parrilla): "); String tipo = sc.nextLine();
-        
-        cooperativa.crearSolicitud(c, ori, des, tipo);
-        System.out.println("[Solicitud enviada] Un operador la procesara pronto.");
-    }
+    System.out.println("Barrios disponibles: " + String.join(", ", Mapa.Barrios));
+    System.out.print("Origen: "); String ori = sc.nextLine();
+    System.out.print("Destino: "); String des = sc.nextLine();
+    System.out.print("Tipo de Taxi (Estandar/Baul/Mascotas/Parrilla): "); String tipo = sc.nextLine();
+    
+    SolicitudServicio solicitud = cooperativa.crearSolicitud(c, ori, des, tipo);
+    System.out.println("Costo estimado: $" + solicitud.getTarifa());
+    System.out.println("Tiempo estimado: " + solicitud.getTiempoEstimado() + " minutos");
+    System.out.println("[Solicitud enviada] Un operador la procesara pronto.");
+}
 
     private static void atenderSolicitud() throws Exception {
         System.out.print("Codigo de Operador que atiende: ");

@@ -61,27 +61,36 @@ public class Mapa implements Serializable {
         Nododirigido("El prado", "La ciudadela", 2);
         Nododirigido("El prado", "Galicia", 2.5);
 
-        Nododirigido("El jardin", "La ciudadela", 1.8);
-        Nododirigido("La ciudadela", "Ciudad Equidad", 2);
-        Nododirigido("Ciudad Equidad", "El mercado", 2.5);
-        Nododirigido("El mercado", "La paz", 1.5);
+       Nododirigido("Centro Histórico", "Pescaito", 1.5);
+    Nododirigido("Pescaito", "Juan23", 1.2);
+    Nododirigido("Juan23", "Cartagena", 1.8);
+    Nododirigido("Cartagena", "Taminaka", 1.5);
+    Nododirigido("Taminaka", "Bastidas", 2.0);
+    Nododirigido("Bastidas", "Centro Histórico", 2.2);
 
-        Nododirigido("Nuevo Milenio", "Nueva Galicia", 1.5);
-        Nododirigido("Nueva Galicia", "Pescaito", 2);
-        Nododirigido("Pescaito", "Juan23", 1.8);
+    Nododirigido("Centro Histórico", "El mercado", 1.0);
+    Nododirigido("El mercado", "El prado", 1.3);
+    Nododirigido("El prado", "El jardin", 1.1);
+    Nododirigido("El jardin", "La ciudadela", 1.4);
+    Nododirigido("La ciudadela", "Taminaka", 1.9);
 
-        Nododirigido("Cartagena", "Taminaka", 3);
-        Nododirigido("Taminaka", "Ojeda", 2.5);
-        Nododirigido("Ojeda", "Santa Ana", 2);
+    Nododirigido("Bastidas", "Galicia", 2.5);
+    Nododirigido("Galicia", "Nueva Galicia", 1.2);
+    Nododirigido("Nueva Galicia", "Nuevo Milenio", 1.6);
+    Nododirigido("Nuevo Milenio", "La paz", 1.8);
+    Nododirigido("La paz", "Ciudad Equidad", 2.1);
 
-        Nododirigido("Santa Ana", "El pando", 2);
-        Nododirigido("El pando", "11 de Noviembre", 2.5);
-        Nododirigido("11 de Noviembre", "El reposo", 2);
+    Nododirigido("Ciudad Equidad", "El reposo", 2.5);
+    Nododirigido("El reposo", "11 de Noviembre", 1.3);
+    Nododirigido("11 de Noviembre", "El pando", 2.0);
+    Nododirigido("El pando", "Ojeda", 1.4);
+    Nododirigido("Ojeda", "Santa Ana", 1.1);
+    Nododirigido("Santa Ana", "Ciudad Equidad", 2.8);
 
-        Nododirigido("La paz", "Nuevo Milenio", 3);
-        Nododirigido("Juan23", "Cartagena", 3.5);
-        Nododirigido("El reposo", "Ciudad Equidad", 4);
-        Nododirigido("Galicia", "Nueva Galicia", 2.5);
+    Nododirigido("La ciudadela", "El pando", 3.0);
+    Nododirigido("El mercado", "Galicia", 3.5);
+    Nododirigido("El jardin", "Ciudad Equidad", 4.2);
+    Nododirigido("Juan23", "Nueva Galicia", 3.8);
     }
 
 
